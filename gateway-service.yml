@@ -12,11 +12,15 @@ spring:
           uri: lb://STUDENTS-SERVICE
           predicates:
             - Path=/students/**
+          filters:
+            - StripPrefix=1
 
         - id: courses-service
           uri: lb://COURSES-SERVICE
           predicates:
             - Path=/courses/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
