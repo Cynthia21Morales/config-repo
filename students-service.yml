@@ -10,7 +10,7 @@ spring:
     username: root
     password: jasmine123
 
-  jpa:
+  jpa:  
     hibernate:
       ddl-auto: update
     show-sql: true
