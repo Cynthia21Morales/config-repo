@@ -8,6 +8,7 @@ spring:
   cloud:
     gateway:
       routes:
+
         - id: students-service
           uri: lb://STUDENTS-SERVICE
           predicates:
@@ -16,7 +17,7 @@ spring:
         - id: courses-service
           uri: lb://COURSES-SERVICE
           predicates:
-            - Path=/courses/**
+            - Path=/courses/**,/student-schedule/**
 
 eureka:
   client:
