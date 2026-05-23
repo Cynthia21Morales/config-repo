@@ -26,6 +26,10 @@ eureka:
 logging:
   file:
     name: logs/students-service.log
+
   level:
     root: INFO
     com.jasminesystem.studentsservice: DEBUG
+
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
