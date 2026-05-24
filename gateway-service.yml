@@ -7,8 +7,20 @@ spring:
 
   cloud:
     gateway:
-      routes:
 
+      globalcors:
+        corsConfigurations:
+          '[/**]':
+            allowedOrigins: "http://localhost:4200"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            allowedHeaders: "*"
+
+      routes:
         - id: students-service
           uri: lb://STUDENTS-SERVICE
           predicates:
@@ -18,8 +30,3 @@ spring:
           uri: lb://COURSES-SERVICE
           predicates:
             - Path=/courses/**,/student-schedule/**
-
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8761/eureka
